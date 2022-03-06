@@ -1,0 +1,28 @@
+#!name=google
+#!desc=use google service at ease
+
+[Rule]
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
+
+DOMAIN-KEYWORD,gmail,Proxy
+DOMAIN-KEYWORD,google,Proxy
+DOMAIN-KEYWORD,youtube,Proxy
+DOMAIN-SUFFIX,ggpht.com,Proxy
+DOMAIN-SUFFIX,gstatic.com,Proxy
+DOMAIN-SUFFIX,ytimg.com,Proxy
+DOMAIN-SUFFIX,youtu.be,Proxy
+
+URL-REGEX,^https?:\/\/[\w-]+\.googlevideo\.com\/.+&(oad|ctier),REJECT-TINYGIF
+
+[MITM]
+hostname = %APPEND% -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com
+
+[URL Rewrite]
+^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
+
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 header
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - reject
+^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break - reject
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - reject
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - reject
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - reject

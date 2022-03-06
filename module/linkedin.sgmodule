@@ -1,0 +1,11 @@
+#!name=linkedin
+#!desc=use linkedin at ease
+
+[Rule]
+DOMAIN-KEYWORD,linkedin,Proxy
+
+[MITM]
+hostname = %APPEND% *.linkedin.cn
+
+[URL Rewrite]
+^https?:\/\/(www.)?(linkedin)\.cn https://linkedin.com 302

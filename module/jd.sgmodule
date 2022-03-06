@@ -1,0 +1,11 @@
+#!name=jd
+#!desc=use jd at ease
+
+[Rule]
+URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-TINYGIF
+
+[MITM]
+hostname = %APPEND% api.m.jd.com
+
+[Script]
+jd_price = type=http-response,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/zhyncs/profile/master/script/jd_price.js,script-update-interval=0
