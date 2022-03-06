@@ -1,9 +1,6 @@
 #!name=jd
 #!desc=use jd at ease
 
-[Rule]
-URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-TINYGIF
-
 [MITM]
 hostname = %APPEND% api.m.jd.com
 
