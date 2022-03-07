@@ -1,0 +1,16 @@
+#!name=sankuai
+#!desc=use sankuai service with anyconnect at ease
+
+[Rule]
+DOMAIN-SUFFIX,dianping.com,DIRECT
+DOMAIN-SUFFIX,meituan.com,DIRECT
+DOMAIN-SUFFIX,meituan.net,DIRECT
+DOMAIN-SUFFIX,neixin.cn,DIRECT
+DOMAIN-SUFFIX,sankuai.com,DIRECT
+
+[Host]
+*dianping.com = server:syslib
+*meituan.com = server:syslib
+*meituan.net = server:syslib
+*neixin.cn = server:syslib
+*sankuai.com = server:syslib
