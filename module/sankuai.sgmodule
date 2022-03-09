@@ -9,7 +9,7 @@ DOMAIN-SUFFIX,neixin.cn,DIRECT
 DOMAIN-SUFFIX,sankuai.com,DIRECT
 
 [MITM]
-hostname = %APPEND% ssovo.sankuai.com
+hostname = %APPEND% ssosv.sankuai.com
 
 [Host]
 *dianping.com = server:syslib
