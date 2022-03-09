@@ -8,9 +8,15 @@ DOMAIN-SUFFIX,meituan.net,DIRECT
 DOMAIN-SUFFIX,neixin.cn,DIRECT
 DOMAIN-SUFFIX,sankuai.com,DIRECT
 
+[MITM]
+hostname = %APPEND% ssovo.sankuai.com
+
 [Host]
 *dianping.com = server:syslib
 *meituan.com = server:syslib
 *meituan.net = server:syslib
 *neixin.cn = server:syslib
 *sankuai.com = server:syslib
+
+[Script]
+sso_ua = type=http-request,pattern=^https?:\/\/ssosv\.sankuai\.com,script-path=https://raw.githubusercontent.com/zhyncs/profile/master/script/sso_ua.js

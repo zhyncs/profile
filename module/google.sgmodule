@@ -15,7 +15,7 @@ DOMAIN-SUFFIX,youtu.be,Proxy
 URL-REGEX,^https?:\/\/[\w-]+\.googlevideo\.com\/.+&(oad|ctier),REJECT-TINYGIF
 
 [MITM]
-hostname = %APPEND% -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com
+hostname = %APPEND% -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,*google.com
 
 [URL Rewrite]
 ^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
@@ -26,3 +26,6 @@ hostname = %APPEND% -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.c
 ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - reject
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - reject
 ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - reject
+
+[Script]
+g_zh = type=http-request,pattern=^https?:\/\/(www.)?(g|google)\.com\/search,script-path=https://raw.githubusercontent.com/zhyncs/profile/master/script/g_zh.js

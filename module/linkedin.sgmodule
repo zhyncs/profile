@@ -3,6 +3,7 @@
 
 [Rule]
 DOMAIN-KEYWORD,linkedin,Proxy
+DOMAIN-SUFFIX,licdn.com,Proxy
 
 [MITM]
 hostname = %APPEND% *.linkedin.cn
